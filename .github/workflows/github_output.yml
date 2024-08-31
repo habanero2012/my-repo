@@ -9,3 +9,5 @@ jobs:
             - env:
                 RESULT: ${{ steps.source.outputs.result }} # stepsコンテキストから参照
               run: echo "${RESULT}"
+            - run: echo "RESULT=hello2" >> "${GITHUB_ENV}" # GITHUB_ENVへ書き出し
+            - run: echo "${RESULT}" # 通常の環境変数として参照
