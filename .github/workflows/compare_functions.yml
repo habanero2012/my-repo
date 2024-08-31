@@ -1,0 +1,12 @@
+name: Compare functions
+on: push
+jobs:
+    compare:
+        runs-on: ubuntu-latest
+        steps:
+            - run: printenv | '_FUNC'
+              env:
+                CONTAINS_FUNC: ${{ contains('Hello', 'ell') }} # 「ell」を含むか
+                START_WITH_FUNC: ${{ startsWith('Hello', 'He') }} # 「He」で始まるか
+                END_WITH_FUNC: ${{ endsWith('Hello', 'lo') }} # 「lo」で終わるか
+                CONTAINS_ARR_FUNC: ${{ contains(github.event.issue.labels.*.name, 'bug') }} # 配列に「bug」を含むか
