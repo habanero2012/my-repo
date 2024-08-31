@@ -1,0 +1,17 @@
+name: functions
+on: push
+jobs:
+    exec_func:
+        runs-on: ubuntu-latest
+        steps:
+            - run: printenv | grep '_FUNC'
+              env:
+                FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'World') }} # フォーマット
+                JOIN_FUNC: ${{ join(github.event.*.html_url, ',') }} #カンマで結合
+            - run: echo "${{ env.CONTEXT }}"
+              env:
+                CONTEXT: ${{ toJson(github) }}
+            - uses: actions/checkout@v4
+            - run: echo "${{ env.HASH }}"
+              env:
+                HASH: ${{ hashFiles('.github/workflows/*.yml') }} # ハッシュ値の生成
