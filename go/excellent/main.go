@@ -7,3 +7,7 @@ func EvenOrOdd(number int) string {
 		return "odd"
 	}
 }
+
+func sum(a int, b int) int {
+	return a + b
+}
