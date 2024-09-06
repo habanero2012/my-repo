@@ -8,9 +8,9 @@ jobs:
               env:
                 FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'World') }} # フォーマット
                 JOIN_FUNC: ${{ join(github.event.*.html_url, ',') }} #カンマで結合
-            - run: echo "${{ env.CONTEXT }}"
-              env:
-                CONTEXT: ${{ toJson(github) }}
+            # - run: echo "${{ env.CONTEXT }}"
+            #   env:
+            #     CONTEXT: ${{ toJson(github) }}
             - uses: actions/checkout@v4
             - run: echo "${{ env.HASH }}"
               env:
