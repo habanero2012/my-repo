@@ -10,8 +10,8 @@ func TestEvenOrOdd(t *testing.T) {
 }
 
 func TestSum(t *testing.T) {
-	result := sum(10, 20)
-	if result != 30 {
+	result := sum(1, 2)
+	if result != 3 {
 		t.Errorf("expected: even, actual: %d", result)
 	}
 }
